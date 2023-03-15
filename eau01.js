@@ -23,7 +23,7 @@ function numberChain(){
     let chiffres = i.toString().padStart(3, "0").split("");
     let combinaison = chiffres[0] + chiffres[1] + chiffres[2];
   
-    if (!array.includes(combinaison) && !array.includes(chiffres[0] + chiffres[2] + chiffres[1]) && !array.includes(chiffres[1] + chiffres[0] + chiffres[2]) && !array.includes(chiffres[1] + chiffres[2] + chiffres[0]) && !array.includes(chiffres[2] + chiffres[0] + chiffres[1]) && !array.includes(chiffres[2] + chiffres[1] + chiffres[0])) { /
+    if (!array.includes(combinaison) && !array.includes(chiffres[0] + chiffres[2] + chiffres[1]) && !array.includes(chiffres[1] + chiffres[0] + chiffres[2]) && !array.includes(chiffres[1] + chiffres[2] + chiffres[0]) && !array.includes(chiffres[2] + chiffres[0] + chiffres[1]) && !array.includes(chiffres[2] + chiffres[1] + chiffres[0])) {
       // console.log(combinaison);
       array.push(combinaison);
     }  
