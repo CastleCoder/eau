@@ -19,17 +19,19 @@ function numberChain(){
   let array = [];
   let result = [];
   for(let i=0; i<1000; i++){
-    array.push(i);
-    // console.log(array)
+    // array.push(i);
+    let chiffres = i.toString().padStart(3, "0").split("");
+    let combinaison = chiffres[0] + chiffres[1] + chiffres[2];
+  
+    if (!array.includes(combinaison) && !array.includes(chiffres[0] + chiffres[2] + chiffres[1]) && !array.includes(chiffres[1] + chiffres[0] + chiffres[2]) && !array.includes(chiffres[1] + chiffres[2] + chiffres[0]) && !array.includes(chiffres[2] + chiffres[0] + chiffres[1]) && !array.includes(chiffres[2] + chiffres[1] + chiffres[0])) { /
+      // console.log(combinaison);
+      array.push(combinaison);
+    }  
   }
-  const newArray = array.map(element => element.toString().padStart(3, '0'));
-  // const newArray2 = newArray.join(', ');
-  // console.log(newArray);
 
-  for(let i=0; i<newArray.length;i++){
-    // console.log(newArray[i][2]);
-    if(newArray[i][0] !== newArray[i][1] && newArray[i][1] !== newArray[i][2] && newArray[i][0] !== newArray[i][2]){
-      result.push(newArray[i]);
+  for(let i=0; i<array.length;i++){
+    if(array[i][0] !== array[i][1] && array[i][1] !== array[i][2] && array[i][0] !== array[i][2]){
+      result.push(array[i]);
     } 
   }
   console.log(result.join(','))
