@@ -13,26 +13,30 @@
 
 const args = process.argv.slice(2);
 
-function upperCase(...arg){
+function upperCase(arg){
   let counter = 0;
   let sentence = arg;
-  let sentence1 = sentence.toLowerCase();
+  let sentence1 = sentence;
   let result = "";
-  console.log(sentence1)
+  // console.log(sentence1)
   for(let i=0;i<sentence1.length;i++){
-    if(counter === 0 && sentence1[i].match(/[a-z]/g)){
-      result += sentence1[i].toUpperCase();
-      counter ++;
+    if(sentence1[0].match(/[a-z]/g)){
+      if(counter === 0){
+        result += sentence1[i].toUpperCase();
+        counter ++;
+      } else {
+        result += sentence1[i].toLowerCase();
+      }
+      if(sentence1[i] === " "){
+        counter = 0;
+      }
+      // console.log(counter)
     } else {
-      result += sentence1[i];
+      console.log("Erreur !")
     }
-    if(sentence1[i] === " "){
-      counter = 0;
-    }
-    console.log(counter)
   }
   console.log(result);
 
 }
 
-upperCase(...args);
+upperCase(args[0]);
