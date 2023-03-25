@@ -19,20 +19,37 @@ const args = process.argv.slice(2);
 function difference(...arg){
   let array = arg;
   let result = [];
-  let counter = 0;
-  let counterForArray = 0;
+  let regexMatch = array.join();
+
   array = array.sort(function(a, b){
     return a - b;
   })
-  console.log(array)
-  for(let i=0; i<array.length-1;i++){
-    let calcul = array[i+1] - array[i];
-    result.push(calcul);
+  // console.log(array)
+  // console.log(regexMatch)
+
+  // if(regexMatch.match(/[0-9]+$/)){
+  //   console.log("que des chiffres !")
+  // }
+
+  for (let j=0;j< args.length; j++){
+    if (!/^\d+$/.test(args[j])){
+      console.log("Erreur, vous ne devez écrire que des chiffres")
+      break;
+    } else if(regexMatch.match(/[0-9]+$/)){
+
+      for(let i=0; i<array.length-1;i++){
+        let calcul = array[i+1] - array[i];
+        result.push(calcul);
+      }
+      let sortArray = result.sort(function(a, b){
+        return a - b;
+      })
+      console.log(sortArray[0]);
+      break;
+    }
   }
-  let sortArray = result.sort(function(a, b){
-    return a - b;
-  })
-  console.log(sortArray[0])
+
+  
 
 }
 

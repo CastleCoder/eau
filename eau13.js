@@ -19,3 +19,33 @@
 
 
 // Wikipedia vous présentera une belle description de cet algorithme de tri.
+
+const args = process.argv.slice(2);
+
+function bubbleSort(...arg){
+  
+  let array = arg;
+  // console.log(array);
+  if(array.length>=2 && (array.join()).match(/[0-9]+$/) ){
+
+    for(let i = 0; i < array.length; i++){
+      for(let j = 0; j < array.length -i  -1; j++){
+        if(parseInt(array[j+1]) < parseInt(array[j])){
+          //variable temporaire pour stocker la valeur de l'élément à l'index j
+          let temp = array[j];
+          //échanger les éléments
+          array[j] = array[j+1];
+          array[j+1] = temp;
+          console.log(array + "       " + array[j] + "    " +j);
+        }
+      }
+    }
+  } else {
+    console.log("Erreur !")
+  }
+}
+
+bubbleSort(...args);
+
+
+
